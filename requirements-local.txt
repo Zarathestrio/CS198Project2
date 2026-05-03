@@ -1,0 +1,9 @@
+# Local (laptop) dependencies for Project 2 local LLM helper + later integration.
+#
+# Install in a venv on your laptop:
+#   python3 -m venv .venv && source .venv/bin/activate
+#   python -m pip install -r requirements-local.txt
+#
+# You still need to download a <=4B instruct model in GGUF form separately.
+
+llama-cpp-python==0.3.22
