@@ -2,6 +2,13 @@
 
 This project implements an end-to-end system that allows users to query a relational database using natural language. By leveraging a lightweight local large language model (LLM), the program translates user questions into SQL queries, executes them on a remote PostgreSQL database via an SSH tunnel, and returns formatted results interactively.
 
+## Team Members & Contributions
+
+- **Jamiel Saenz (js3181)** — Tested and debugged full pipeline end-to-end, fixed SSH authentication, updated prompt template with examples, pushed Project 1 SQL scripts, recorded demo video
+- **Hojin Ryu (hr392)** — Built ilab_script.py, llm_schema_subset.sql, prompt_template.txt, generate_sql_from_question.py
+- **Chris (ctr75)** — Built database_llm.py with SSH tunnel, LLM call, SQL extraction, and interactive loop
+
+
 ## Overview
 
 The system bridges natural language input and structured database querying by combining prompt engineering, local LLM inference, and secure remote execution. It is designed to work with the database schema developed in Project 1 and emphasizes transparency, reproducibility, and responsible AI usage.
@@ -89,6 +96,16 @@ Formatted Results واپس to User
 2. Enter natural language queries
 3. View generated SQL and results
 4. Type `"exit"` to quit
+
+## What We Found Challenging
+- Getting paramiko to authenticate correctly with iLab's GSSAPI-based SSH
+- Extracting clean SQL from LLM output without markdown or extra prose
+- Managing model context size vs schema size tradeoff
+
+## What We Found Interesting
+- How much prompt engineering affects LLM output quality
+- Using a 3B parameter model locally to generate valid SQL
+- Connecting a local LLM to a real remote database via SSH tunnel
 
 ## Notes
 

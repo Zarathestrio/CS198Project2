@@ -25,4 +25,14 @@ Question: What is the most common loan denial reason?
 SQL:
 SELECT denial_reason, COUNT(*) FROM lar_record GROUP BY denial_reason ORDER BY COUNT(*) DESC LIMIT 1
 
+Example:
+Question: What is the average income of owner occupied applications?
+SQL:
+SELECT AVG(applicant_income_000s) FROM lar_record WHERE owner_occupancy = 1
+
+Example:
+Question: How many mortgages have a loan value greater than the applicant income?
+SQL:
+SELECT COUNT(*) FROM lar_record WHERE loan_amount_000s > applicant_income_000s
+
 SQL:

@@ -55,26 +55,23 @@ def extract_sql(text):
 
 
 def run_ssh(query, db_password):
+    ssh_password = getpass.getpass("Enter iLab SSH password: ")
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh.connect(ILAB_HOST, username=ILAB_USER, password=ssh_password)
 
-    ssh.connect(ILAB_HOST, username=ILAB_USER)
-
-    cmd = f'''
-    PGHOST=postgres.cs.rutgers.edu \
-    PGDATABASE=PLACEHOLDER \
-    PGUSER=PLACEHOLDER \
-    PGPASSWORD={db_password} \
-    python3 ilab_script.py "{query}"
-    '''
+    cmd = (
+        "PGHOST=postgres.cs.rutgers.edu "
+        f"PGDATABASE={ILAB_USER} "
+        f"PGUSER={ILAB_USER} "
+        f"PGPASSWORD='{db_password}' "
+        f"python3 ilab_script.py \"{query}\""
+    )
 
     stdin, stdout, stderr = ssh.exec_command(cmd)
-
     output = stdout.read().decode()
     error = stderr.read().decode()
-
     ssh.close()
-
     return output if output else error
 
 
