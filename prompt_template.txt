@@ -23,7 +23,7 @@ QUESTION:
 Example:
 Question: What is the most common loan denial reason?
 SQL:
-SELECT denial_reason, COUNT(*) FROM lar_record GROUP BY denial_reason ORDER BY COUNT(*) DESC LIMIT 1
+SELECT denial_reason_1, COUNT(*) FROM lar_record GROUP BY denial_reason_1 ORDER BY COUNT(*) DESC LIMIT 1
 
 Example:
 Question: What is the average income of owner occupied applications?
