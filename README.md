@@ -67,17 +67,6 @@ Formatted Results واپس to User
 * `README.md` — Project documentation
 * `transcripts/` — Required LLM interaction logs
 
-## Extra Credit (Optional Frontend)
-
-* Web-based UI for submitting queries
-* Interactive, sortable tables for results
-* Display panels for:
-
-  * User query
-  * Generated SQL
-  * LLM raw output
-  * Query results
-
 ## Requirements
 
 * Python 3.x
@@ -96,35 +85,3 @@ Formatted Results واپس to User
 2. Enter natural language queries
 3. View generated SQL and results
 4. Type `"exit"` to quit
-
-## What We Found Challenging
-- Getting paramiko to authenticate correctly with iLab's GSSAPI-based SSH
-- Extracting clean SQL from LLM output without markdown or extra prose
-- Managing model context size vs schema size tradeoff
-
-## What We Found Interesting
-- How much prompt engineering affects LLM output quality
-- Using a 3B parameter model locally to generate valid SQL
-- Connecting a local LLM to a real remote database via SSH tunnel
-
-## Notes
-
-* The system is evaluated on its ability to correctly answer database queries via natural language.
-* Prompt quality significantly impacts performance; iterative tuning is encouraged.
-* All LLM usage must be documented with full transcripts.
-
-## Academic Integrity
-
-All external code and AI assistance must be properly cited. Failure to include transcripts or attribution may result in penalties in accordance with academic integrity policies.
-
-## Deliverables
-
-* Fully functional scripts (local + ILAB)
-* SQL schema files
-* Demonstration video
-* README with team contributions and reflections
-* Complete LLM chat transcripts
-
----
-
-This project demonstrates how modern language models can be integrated with traditional database systems to create intuitive, user-friendly data access tools.
